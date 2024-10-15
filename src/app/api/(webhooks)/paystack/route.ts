@@ -5,6 +5,8 @@ import { db } from '@/server/db';
 import {  users, activities } from '@/server/db/schema';
 import { eq } from 'drizzle-orm';
 import { api } from '@/trpc/server';
+export const runtime = 'edge';
+
 interface Data {
   status: string;
   reference: string;

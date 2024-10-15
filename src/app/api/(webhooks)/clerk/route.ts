@@ -7,6 +7,8 @@ import { db } from '@/server/db';
 import { eq } from 'drizzle-orm';
 import { customAlphabet } from 'nanoid'
 
+export const runtime = 'edge';
+
 export async function POST(req: Request) {
   // You can find this in the Clerk Dashboard -> Webhooks -> choose the endpoint
   const WEBHOOK_SECRET = env.CLERK_WEBHOOK_SECRET;
