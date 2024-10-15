@@ -3,6 +3,7 @@ import UnderDevelopment from "@/components/dashboard/under-development";
 import { env } from "@/env";
 import React from "react";
 
+export const runtime = 'edge';
 export default function InvestmentPage() {
   if (env.NODE_ENV == "development") {
     return (
