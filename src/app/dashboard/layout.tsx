@@ -3,7 +3,7 @@ import MaxWidthWrapper from "@/components/max-width-wrapper";
 import Sidebar from "@/components/sidebar";
 import { api } from "@/trpc/server";
 
-
+// export const runtime = 'edge';
 export default async function DashboardLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {

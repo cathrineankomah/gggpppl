@@ -3,7 +3,8 @@ import { env } from '@/env';
 import { db } from '@/server/db';
 import {  users, activities } from '@/server/db/schema';
 import { eq } from 'drizzle-orm';
-export const runtime = 'edge';
+
+// export const runtime = 'edge';
 
 interface Data {
   status: string;

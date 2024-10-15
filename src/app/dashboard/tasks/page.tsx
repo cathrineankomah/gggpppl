@@ -2,7 +2,7 @@ import TaskPage from "@/components/dashboard/tasks-page";
 import React from "react";
 import { api } from "@/trpc/server";
 
-export const runtime = 'edge';
+// export const runtime = 'edge';
 export default async function TasksPage() {
   const allTasks = await api.task.getTasks()
 
