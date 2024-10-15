@@ -3,6 +3,8 @@ import React from 'react'
  
 import { useParams } from 'next/navigation'
 import {api} from '@/trpc/react'
+export const runtime = 'edge';
+
 export default function TaskPage() {
     const params = useParams<{id:string}>()
 
