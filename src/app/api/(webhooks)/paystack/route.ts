@@ -1,10 +1,8 @@
 import { headers } from 'next/headers';
-import crypto from 'crypto';
 import { env } from '@/env';
 import { db } from '@/server/db';
 import {  users, activities } from '@/server/db/schema';
 import { eq } from 'drizzle-orm';
-import { api } from '@/trpc/server';
 export const runtime = 'edge';
 
 interface Data {
@@ -26,10 +24,6 @@ interface WebhookEvent {
 export async function POST(req: Request) {
   const secret = env.PAYSTACK_SECRET_KEY;
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const hash = crypto.createHmac('sha512', secret).update(JSON.stringify(req.body)).digest('hex');
-
-  console.log(hash);
 
   const signature = headers().get('x-paystack-signature');
   console.log(signature);
