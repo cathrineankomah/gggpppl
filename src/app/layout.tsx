@@ -4,6 +4,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { GeistSans } from "geist/font/sans";
 import { Toaster } from "@/components/ui/sonner";
 import Header from "@/components/header";
+import { TRPCReactProvider } from "@/trpc/react";
 
 export const metadata: Metadata = {
   title: "GainPlus - Easily making money while having fun",
@@ -20,9 +21,11 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
         <body className={GeistSans.variable}>
-          <Header />
-          <Toaster />
-          {children}
+          <TRPCReactProvider>
+            <Header />
+            <Toaster />
+              {children}
+          </TRPCReactProvider>
         </body>
       </html>
     </ClerkProvider>

@@ -1,8 +1,19 @@
+"use client"
 import React from "react";
 import MaxWidthWrapper from "./max-width-wrapper";
 import Link from "next/link";
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { buttonVariants } from "./ui/button";
+import { Home } from "lucide-react";
+
+const DotIcon = () => {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor">
+      <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z" />
+    </svg>
+  )
+}
+
 
 export default function Header() {
   return (
@@ -37,8 +48,12 @@ export default function Header() {
           </SignedOut>
           <SignedIn>
             <div className="flex items-center space-x-4">
-              <Link href={"/dashboard"}>Dashboard</Link>
-            <UserButton />
+              <Link className={buttonVariants()} href={"/dashboard"}>Dashboard</Link>
+              <UserButton>
+        <UserButton.MenuItems>
+          <UserButton.Link href="/dashboard" label="Dashboard" labelIcon={<DotIcon/>}/>
+        </UserButton.MenuItems>
+      </UserButton>
             </div>
           </SignedIn>
         </nav>
